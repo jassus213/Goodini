@@ -72,7 +72,7 @@ public class UserRepository : IUserRepository
     public async Task<bool> RemoveUserAsync(int id, CancellationToken cancellationToken)
     {
         var queryTable = _userContext.Users.EntityType.GetSchemaQualifiedTableName();
-        var query = $"DELETE FROM \"{queryTable}\" WHERE \"UserId\" = {id}";
+        var query = $"DELETE FROM \"{queryTable}\" WHERE \"Id\" = {id}";
         var affectedRows = await _userContext.Database.ExecuteSqlRawAsync(query, cancellationToken);
         return affectedRows == 0 ? false : true;
     }

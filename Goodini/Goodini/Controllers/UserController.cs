@@ -81,8 +81,8 @@ public class UserController
         
     }
 
-    [HttpDelete]
-    public async Task<IResult> DeleteUserAsync([FromRoute] int id, CancellationToken cancellationToken)
+    [HttpDelete("{id:int}")]
+    public async Task<IResult> DeleteUserAsync(int id, CancellationToken cancellationToken)
     {
         try
         {
